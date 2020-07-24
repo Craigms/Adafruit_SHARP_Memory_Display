@@ -1,11 +1,11 @@
-# Adafruit SHARP Memory Display [![Build Status](https://github.com/adafruit/Adafruit_SHARP_Memory_Display/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_SHARP_Memory_Display/actions)
+# Adafruit SHARP Memory Display - Fast Hardware SPI [![Build Status](https://github.com/adafruit/Adafruit_SHARP_Memory_Display/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_SHARP_Memory_Display/actions)
 
 This is the Adafruit SHARP Memory Display Arduino Library for Arduino
 
 - It has been modified and optimized for the Arduino Nano 33 Sense BLE.
 - It uses Hardware SPI (Arduino libraries) instead of bit bashed SPI.
 - It has been tested and achieves ~40ms LCD refresh time instead of ~4 seconds of the original code.
-
+- Modifed by Craig Smith, June 2020
 
 
 Tested and works great with the Adafruit SHARP Memory Display Breakout Board. Pick one up today in the adafruit shop!
