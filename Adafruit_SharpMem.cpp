@@ -24,8 +24,16 @@ All text above, and the splash screen must be included in any redistribution
 #include "Adafruit_SharpMem.h"
 #include "SPI.h"
 
-// flag, disable to save memory (but increases LCD refresh time by 20ms?)
+/* If enabled, this creates a data packet consistaning of screen buffer and all addressing bytes
+before sending the entire packet over Hardware SPI.
+This increases LCD refresh time by ~20ms?) but requires additional memory */
 #define SPI_BUFFER_ENABLED
+
+/* Select SPI clock frequency */
+//#define SPI_FREQUENCY 1000000 // 500kHz, 
+//#define SPI_FREQUENCY 2000000 // 2MHz, 57ms for full screen update @ 320x240
+#define SPI_FREQUENCY 4000000 // 4MHz, 38ms for full screen update @ 320x240
+
 
 #ifndef _swap_int16_t
 #define _swap_int16_t(a, b)                                                    \
@@ -45,7 +53,7 @@ All text above, and the splash screen must be included in any redistribution
 #endif
 
 /**************************************************************************
-Arduino Nano 33 BLE dedicated pins:
+Arduino Nano 33 BLE dedicated pins must be used:
 
 // SPI
 #define PIN_SPI_MISO  (12u)
@@ -79,10 +87,6 @@ Arduino Nano 33 BLE dedicated pins:
   do {                                                                         \
     _sharpmem_vcom = _sharpmem_vcom ? 0x00 : SHARPMEM_BIT_VCOM;                \
   } while (0);
-
-//#define SPI_FREQUENCY 1000000 // 500kHz, 
-//#define SPI_FREQUENCY 2000000 // 2MHz, 57ms for full screen update @ 320x240
-#define SPI_FREQUENCY 4000000 // 4MHz, 38ms for full screen update @ 320x240
 
 #define TOGGLE_VCOM                                                            \
   do {                                                                         \
